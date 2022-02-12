@@ -1,5 +1,5 @@
 <head>
-  <title>Lczu Playlist</title>
+  <title>Solitude</title>
   <link rel="icon" type="image/x-icon" href="src/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
@@ -18,13 +18,13 @@
 </player>
 
 <songname id='songname'>
-  <a id='songlink' href='https://open.spotify.com/track/5hVucwpSuVoM1dwO3t4llE?si=579dfa4c2fd64a52'>Home - Pyxis</a>
+  <a id='songlink' href='https://open.spotify.com/track/0I6FecD12OZe7fed9Z2btD?si=7dfa39e860fc42e0'>憂鬱 - Sun</a>
   </songname>
 
 
   <quote id='quote'>
 
-  <p2 style='color:#FF80AA' id='quoteB'> It'sOkay,</p2> <p1 style='color:#FF80AA' id='quoteT'>You'reDreaming. </p1>
+  <p2 style='color:#FF80AA' id='quoteB'> It'sOkay,</p2> <p1 style='color:#FF80AA' id='quoteT'>You'reNotAlone. </p1>
 
   </quote>
 
@@ -38,7 +38,7 @@
 
 <img id='soundon' src="src/soundon.gif">
 <img id='listening' src="src/listening.gif">
-<img id='album' src="src/albumcover.jpg">
+<img id='album' src="src/albumcover.png">
 
 
 
@@ -131,7 +131,7 @@ setTimeout(function(){
 if (i==0){
 song.play();
 i = 1;}
-document.body.style.background = 'white';
+
 
 
 }, 2000);
@@ -247,7 +247,7 @@ document.getElementById('socials').classList.add('slideupsocials');
     font-family: 'Blrrpix';
     font-style: normal;
     font-weight: 400;
-    src: local('Blrrpix'), url('https://fonts.cdnfonts.com/s/29723/blrrpixs016.woff') format('woff');
+    src: local('Kegisiko'), url('https://fonts.cdnfonts.com/s/74486/Kegisiko-EaB3z.woff') format('woff');
 
 }
 
@@ -332,7 +332,7 @@ player
   opacity: 0;
   position: fixed;
   user-select: none;
-  top:30vh;
+  top:80vh;
 text-align: right;
 
 
@@ -345,7 +345,7 @@ songname
   opacity: 0;
   position: fixed;
   user-select: none;
-  top:40vh;
+  top:70vh;
 text-align: right;
 
 
@@ -364,11 +364,11 @@ text-align: right;
 
   50% {
     opacity: 1;
-    top: 20vh; }
+    top: 50vh; }
 
 80% {
   opacity: 1;
-  top: 20vh; }
+  top: 50vh; }
 
     100% {
       visibility : hidden;
@@ -383,7 +383,7 @@ text-align: right;
 100% {
 
   opacity: 1;
-  top: 45vh; }
+  top: 58vh; }
 }
 
 
@@ -393,7 +393,7 @@ text-align: right;
 100% {
 
   opacity: 1;
-  top: 30vh; }
+  top: 43vh; }
 }
 
 .slideupsocials
@@ -415,7 +415,7 @@ animation: slideupPerm 2s forwards;
     font-size: 16px;
   text-align: center;
   position: fixed;
-  top: 85vh;
+  top: 90vh;
 }
 .footer-social-links a{
     width: 25px;
@@ -425,7 +425,7 @@ animation: slideupPerm 2s forwards;
     margin: 0 5px;
     text-align: center;
     display: inline-block;
-    color: #FF80AA;
+    color: #6363FF;
 
     -webkit-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);
     -moz-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);
@@ -447,7 +447,7 @@ animation: slideupPerm 2s forwards;
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid #FF80AA;
+    border: 1px solid #6363FF;
 
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -470,7 +470,7 @@ animation: slideupPerm 2s forwards;
     color: #fff;
 }
 .footer-social-links a:hover:before{
-    background: #FF80AA;
+    background: #6363FF;
 }
 
 
@@ -484,7 +484,7 @@ animation: slideupPerm 2s forwards;
     display: flex;
   justify-content: center;
   align-items: center;
- transition: opacity 2s ease-in-out;
+ transition: opacity 4s ease-in;
 
   }
 
@@ -498,7 +498,7 @@ animation: slideupPerm 2s forwards;
     display: flex;
   justify-content: center;
   align-items: center;
- transition: opacity 2s ease-in-out;
+ transition: opacity 4s ease-in;
   }
 
 
@@ -561,11 +561,11 @@ animation: slideupPerm 2s forwards;
 body {
 user-select: none;
   overflow: hidden;
-  background: gray;
+  background-image: linear-gradient(160deg, black 30%,#5F005F 200%);
   display: flex;
   place-content: center;
   height: 100vh;
-  transition: background 1s linear;
+
   z-index: -1;
 }
 body > div.circle {
@@ -578,7 +578,7 @@ body > div.circle {
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  background-color:#333;
+  background-image: radial-gradient(#FFA0FF 20%,#FFD2FF 10%, #5F005F 70%);
   animation: grow 1s infinite;
   opacity: 1;
   transition: opacity 2s ease-in-out;
@@ -588,7 +588,8 @@ body > div.circle > span {
   user-select: none;
   cursor: pointer;
   font-family: 'Material Icons';
-  color: #eee;
+  color: #5F005F;
+
   position: absolute;
     transform: translate(-50%, -50%);
   top: 50%;
