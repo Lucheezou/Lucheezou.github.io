@@ -309,7 +309,8 @@ name.innerHTML = "drving somewhere";
   but12.removeEventListener("mouseout",mousegone);
   setTimeout(function(){var1.style.opacity = '0'}, 1000);
   setTimeout(function(){var1.remove()}, 1300);
-  setTimeout(function(){document.getElementById('cheeserain').style.opacity = '1'}, 2000);
+  setTimeout(function(){document.getElementById('cheeserain').style.visibility = 'visible';
+    document.getElementById('cheeserain').style.opacity = '1'}, 2000);
   setTimeout(function(){
 
 document.getElementById('messagebox').style.opacity = '1';
@@ -793,7 +794,7 @@ min-height: 100vh;
 
 
         #cheeserain{
-         visibility: visible;
+         visibility: hidden;
           opacity: 0;
             background: none;
             background-image: url('cheese-tile.png'), url('cheese-tile-1.png'), url('cheese-tile-2.png');
