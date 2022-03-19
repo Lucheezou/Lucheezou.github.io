@@ -1,0 +1,749 @@
+<head>
+  <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
+  <title>CURTAINS</title>
+  <link rel="icon" type="image/x-icon" href="src/favicon.ico">
+  </head>
+<body>
+
+  <audio id="music" preload="auto">
+    <source src="src/4music.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <video id="v1" autoplay muted preload="auto">
+    <source src="src/v1.mp4" type="video/mp4">
+  </video>
+
+  <video id="v2" autoplay muted preload="auto">
+    <source src="src/v2.mp4" type="video/mp4">
+  </video>
+
+  <video id="v3" autoplay muted preload="auto">
+    <source src="src/v3.mp4" type="video/mp4">
+  </video>
+
+  <video id="v4" autoplay muted preload="auto">
+    <source src="src/v4.mp4" type="video/mp4">
+  </video>
+
+
+  <video id="v5" autoplay muted preload="auto">
+    <source src="src/v5.mp4" type="video/mp4">
+  </video>
+
+
+  <video id="v6" autoplay muted preload="auto">
+    <source src="src/v6.mp4" type="video/mp4">
+  </video>
+
+
+
+<div class="btnz" id='curtain' onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false">
+  <div class="bg"></div>
+  <span class="noselect">Close me.</span>
+  <div class="string"></div>
+  <div class="string-end"></div>
+  <div class="blind" id="b1"></div>
+  <div class="blind" id="b2"></div>
+  <div class="blind" id="b3"></div>
+  <div class="blind" id="b4"></div>
+  <div class="blind" id="b5"></div>
+  <div class="blind" id="b6"></div>
+  <div class="blind" id="b7"></div>
+  <div class="blind" id="b8"></div>
+  <div class="blind" id="b9"></div>
+  <div class="blind" id="b10"></div>
+  <div class="blind" id="b11"></div>
+  <div class="blind" id="b12"></div>
+  <div class="blind" id="b13"></div>
+  <div class="blind" id="b14"></div>
+  <div class="blind" id="b15"></div>
+  <div class="blind" id="b16"></div>
+</div>
+
+
+<h1 id='voice'>Meeting you...</h1>
+</body>
+
+<a href="https://m.me/Lucheezou">
+    <img border="0" alt="W3Schools" src="src/msg.png" >
+ </a>
+
+
+<style>
+  @font-face {
+      font-family: 'Gotham';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamBook.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: italic;
+      font-weight: 400;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamBookItalic.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: normal;
+      font-weight: 300;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamLight.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: italic;
+      font-weight: 300;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamLightItalic.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamMedium.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamMedium_1.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamMediumItalic.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamBold.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/Gotham-Bold.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham';
+      font-style: italic;
+      font-weight: 700;
+      src: local('Gotham'), url('https://fonts.cdnfonts.com/s/14898/GothamBoldItalic.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham Black';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Gotham Black'), url('https://fonts.cdnfonts.com/s/14898/Gotham-Black.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham Light';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Gotham Light'), url('https://fonts.cdnfonts.com/s/14898/Gotham-Light.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham Thin';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Gotham Thin'), url('https://fonts.cdnfonts.com/s/14898/Gotham-Thin.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham XLight';
+      font-style: normal;
+      font-weight: 500;
+      src: local('Gotham XLight'), url('https://fonts.cdnfonts.com/s/14898/Gotham-XLight.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham Book';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Gotham Book'), url('https://fonts.cdnfonts.com/s/14898/Gotham-BookItalic.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham Thin';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Gotham Thin'), url('https://fonts.cdnfonts.com/s/14898/Gotham-ThinItalic.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham Ultra';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Gotham Ultra'), url('https://fonts.cdnfonts.com/s/14898/Gotham-UltraItalic.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Gotham XLight';
+      font-style: italic;
+      font-weight: 500;
+      src: local('Gotham XLight'), url('https://fonts.cdnfonts.com/s/14898/Gotham-XLightItalic.woff') format('woff');
+  }
+
+a{
+  visibility: hidden;
+  position: absolute;
+  height: 20%;
+  width: 20%;
+  max-height: 20%;
+  max-width: 20%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#v1 {
+  overflow: hidden;
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 120%;
+  max-height: 120%;
+
+
+
+}
+
+#v2 {
+  overflow: hidden;
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 115%;
+  max-height: 115%;
+
+}
+
+#v3 {
+  overflow: hidden;
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 120%;
+  max-height: 120%;
+}
+
+#v4 {
+  overflow: hidden;
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 120%;
+  max-height: 120%;
+}
+
+#v5 {
+  overflow: hidden;
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 120%;
+  max-height: 120%;
+
+}
+
+#v6 {
+  overflow: hidden;
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 120%;
+  max-height: 120%;
+
+}
+
+
+h1 {
+    position: absolute;
+    visibility: hidden;
+    top: 25vh;
+    text-align: center;
+    display: flex;
+    font-family: 'Gotham Black';
+    font-size:7vw;
+    justify-content: center;
+    color:#dbdbdb;
+    outline: none;
+    border: none;
+    padding: 0;
+    z-index: 1;
+
+}
+
+
+span{
+
+  font-size: 1.8vw;
+}
+
+* {
+
+  font-family: 'Gotham';
+  font-size:15px;
+  color: #0C090A;
+  letter-spacing: ;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+body {
+  overflow:hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d99058;
+  filter: ;
+}
+
+
+
+
+.bg {
+  position: absolute;
+  width: 100vw;
+  height: 110vh;
+  background-color: #d99058;
+  background-image: linear-gradient(315deg, #d99058 0%, #f8de7e 74%);
+  z-index: -1;
+  transition: 850ms;
+}
+
+.btnz {
+  opacity: 1;
+  width: 160px;
+  height: 50px;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gotham';
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #63a4ff;
+  background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+  transition: opacity 2s ease-in-out;
+}
+
+.blind {
+  position: absolute;
+  width: 10px;
+  height: 0px;
+  background-color: #ffffff;
+  background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+  top: 0;
+}
+
+.string {
+  width: 5px;
+  height: 80px;
+  border-radius: 0 5px 0 0;
+  background: #eee;
+  position: absolute;
+  right: -5px;
+  top: 0;
+  transition: 850ms;
+}
+
+.string-end {
+  width: 8px;
+  height: 12px;
+  border-radius: 0 0 10px 10px;
+  background: #ccc;
+  position: absolute;
+  right: -6.5px;
+  bottom: -42px;
+  transition: 850ms;
+}
+
+.btnz:hover .blind {
+  height: 50px;
+}
+
+.btnz:hover .bg {
+  filter: invert(100%) brightness(20%);
+}
+
+.btnz:hover .string {
+  height: 60px;
+}
+
+.btnz:hover .string-end {
+  bottom: -22px;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+#b1 {
+  left: 0;
+  transition: 100ms;
+}
+
+#b2 {
+  left: 10px;
+  transition: 150ms;
+}
+
+#b3 {
+  left: 20px;
+  transition: 200ms;
+}
+
+#b4 {
+  left: 30px;
+  transition: 250ms;
+}
+
+#b5 {
+  left: 40px;
+  transition: 300ms;
+}
+
+#b6 {
+  left: 50px;
+  transition: 350ms;
+}
+
+#b7 {
+  left: 60px;
+  transition: 400ms;
+}
+
+#b8 {
+  left: 70px;
+  transition: 450ms;
+}
+
+#b9 {
+  left: 80px;
+  transition: 500ms;
+}
+
+#b10 {
+  left: 90px;
+  transition: 550ms;
+}
+
+#b11 {
+  left: 100px;
+  transition: 600ms;
+}
+
+#b12 {
+  left: 110px;
+  transition: 650ms;
+}
+
+#b13 {
+  left: 120px;
+  transition: 700ms;
+}
+
+#b14 {
+  left: 130px;
+  transition: 750ms;
+}
+
+#b15 {
+  left: 140px;
+  transition: 800ms;
+}
+
+#b16 {
+  left: 150px;
+  transition: 850ms;
+}
+</style>
+
+
+
+
+<script>
+var msg = document.querySelector('a');
+var curtain = document.querySelector('.btnz');
+var body = document.querySelector('body');
+var h1 = document.querySelector('h1');
+var voice = document.getElementById('voice');
+var v1 = document.getElementById('v1');
+var v2 = document.getElementById('v2');
+var v3 = document.getElementById('v3');
+var v4 = document.getElementById('v4');
+var v5 = document.getElementById('v5');
+var v6 = document.getElementById('v6');
+curtain.addEventListener('click',function(){
+  var music = document.getElementById('music');
+  var i = 0;
+  function play()
+  {
+if (i === 0)
+{
+  music.play();
+  i = i + 1;
+}
+  }
+  play();
+  body.style.background = "black";
+  curtain.style.opacity = 0;
+  setTimeout(function(){curtain.remove()},2000);
+
+  var duration = 4500;
+  setTimeout(function(){
+  voice.style.visibility = "visible";},duration);
+  duration = duration + 2500;
+
+  setTimeout(function(){
+    voice.style.top = "30vh";
+    voice.style.fontSize = "6vw";
+  voice.innerHTML = "Was one hell of a ride.";},duration);
+  duration = duration + 3000;
+
+
+  setTimeout(function(){
+    voice.style.fontSize = "7vw";
+    voice.innerHTML = "Thank you.";},duration);
+  duration = duration + 2000;
+
+  setTimeout(function(){
+
+  voice.innerHTML = "YOU";},duration);
+  duration = duration + 1200;
+
+  setTimeout(function(){
+
+  voice.innerHTML = "WERE";},duration);
+  duration = duration + 1200;
+
+
+
+  setTimeout(function(){
+    v1.currentTime = 1.5;
+    v1.play();
+
+    setTimeout(function(){
+      voice.style.color = '#FFE6E8';
+      v1.style.visibility = "visible";
+      voice.style.top = '25vh';
+      voice.style.fontSize = "9vw";
+      voice.innerHTML = "AMAZING.";
+
+    },50)
+    },duration);
+  duration = duration + 2500;
+
+
+  setTimeout(function(){
+  v1.remove();
+  voice.style.top = '30vh';
+  voice.style.color = '#dbdbdb';
+  voice.style.fontSize = "6vw";
+  voice.innerHTML = "I still look up to you.";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  v1.remove();
+  voice.innerHTML = "You're just so..";},duration);
+  duration = duration + 2000;
+
+
+  setTimeout(function(){
+
+    v2.currentTime = 3.2;
+    v2.play();
+    setTimeout(function(){
+    v2.style.visibility = "visible";
+voice.style.top = "55vh";
+voice.style.fontSize = "7vw";
+voice.style.color = "#F08080";
+voice.innerHTML = "BREATHTAKING";
+},150)
+
+setTimeout(function(){
+voice.innerHTML = "RAVISHING";},1400);
+
+setTimeout(function(){
+voice.innerHTML = "RADIANT";},2000);
+
+
+
+
+
+
+
+
+
+},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  v2.remove();
+  voice.style.color = '#dbdbdb';
+  voice.style.top = "25vh";
+  voice.innerHTML = "It's too bad..";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  voice.style.fontSize = "6vw";
+  voice.innerHTML = "Wala ako sa level mo.";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  voice.style.fontSize = "7vw";
+  voice.innerHTML = "Pero why?";},duration);
+  duration = duration + 2000;
+
+  setTimeout(function(){
+  voice.innerHTML = "It still felt ecstatic.";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  voice.innerHTML = "It was like..";},duration);
+  duration = duration + 2000;
+
+  setTimeout(function(){
+
+    v3.currentTime = 0;
+    v3.play();
+    setTimeout(function(){
+    v3.style.visibility = "visible";
+  voice.style.top = "10vh";
+  voice.style.fontSize = "3vw";
+  voice.innerHTML = "\'Hey.\'";
+  },150)
+
+  },duration);
+  duration = duration + 2500;
+
+  setTimeout(function(){
+  voice.innerHTML = "\'I found you.\'";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  v3.remove();
+  voice.style.top = "30vh";
+  voice.style.fontSize = "5vw";
+  voice.innerHTML = "I know I'm a nobody to you";},duration);
+  duration = duration + 4000;
+
+  setTimeout(function(){
+    v4.currentTime = 0;
+    v4.play();
+    setTimeout(function(){
+    v4.style.visibility = "visible";
+    voice.style.top = "23vh";
+    voice.style.fontSize = "5vw";
+    voice.innerHTML = "But it sucks being strangers again.";
+    },150)
+  },duration)
+
+  duration = duration + 4000;
+
+
+  setTimeout(function(){
+  v4.remove();
+  voice.style.top = "30vh";
+  voice.style.fontSize = "7vw";
+  voice.innerHTML = "One question.";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  voice.style.fontSize = "5vw";
+  voice.innerHTML = "Pumapatol kaba sa tanga?";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  voice.style.fontSize = "5vw";
+  voice.innerHTML = "If yes.";},duration);
+  duration = duration + 2000;
+
+  setTimeout(function(){
+    v5.currentTime = 1;
+    v5.play();
+    setTimeout(function(){
+    v5.style.visibility = "visible";
+    voice.style.top = "60vh";
+    voice.style.fontSize = "5vw";
+    voice.innerHTML = "I'm here.";
+    },150)
+  },duration)
+
+  duration = duration + 2000;
+
+  setTimeout(function(){
+  voice.innerHTML = "Always will be.";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+    v5.remove();
+  voice.style.top = "30vh";
+  voice.style.fontSize = "7vw";
+  voice.innerHTML = "Cheese is forever diba?.";},duration);
+  duration = duration + 3000;
+
+  setTimeout(function(){
+    v6.currentTime = 0;
+    v6.play();
+    setTimeout(function(){
+    v6.style.visibility = "visible";
+    voice.style.top = "10vh";
+    voice.style.fontSize = "4vw";
+    voice.innerHTML = "Wag ka na sadgirl ha.";
+    },150)
+  },duration)
+
+  duration = duration + 3000;
+
+  setTimeout(function(){
+  voice.style.fontSize = "4vw";
+  voice.innerHTML = "Wish we could talk again.";},duration);
+  duration = duration + 3000;
+
+
+  setTimeout(function(){
+  v6.remove();
+  voice.style.fontSize = "7vw";
+  voice.style.top = "30vh";
+  voice.innerHTML = "Can we?";},duration);
+  duration = duration + 2000;
+
+  setTimeout(function(){
+    voice.innerHTML = ""
+  msg.style.visibility = "visible";
+  msg.style.opacity = 1;},duration);
+  duration = duration + 3000;
+
+}
+);
+
+
+
+  </script>
