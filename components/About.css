@@ -1,0 +1,1138 @@
+/* About Section */
+.about-section {
+    position: relative;
+    background: linear-gradient(195deg, #f8f9fa 30%, #e9ecef 100%);
+    padding: 150px 0 80px; /* Increased top padding to prevent overflow */
+    width: 100%;
+    margin-top: -2px; /* Remove any tiny gap */
+  }
+  
+  
+  .shape-divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: 1; /* Add z-index to ensure it appears above hero section */
+    margin-top: -2px; /* Fix gap by slightly overlapping */
+  }
+  
+  .shape-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+    transform: translateY(1px); /* Slight adjustment to avoid gap */
+  }
+  
+  .shape-divider .shape-fill {
+    fill: #000000; /* Match this with your hero section background */
+  }
+  
+  .about-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 60px;
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    color: #333;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    padding-top: 40px; /* Add top padding to push down the title */
+  }
+  
+  /* Update the title's decoration line */
+  .about-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #4a8cff, #5e60ce);
+    border-radius: 2px;
+  }
+  
+  .about-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start; /* Changed from stretch to prevent stretching */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    padding: 0 15px; /* Add padding to prevent edge-to-edge on mobile */
+  }
+  
+  /* Profile Card */
+  .profile-card-container {
+    width: 330px;
+    /* Fixed height that properly fits all content */
+    height: auto; /* Let it expand to content instead of fixed height */
+    min-height: 520px;
+    perspective: 1000px;
+    transition: transform 0.6s ease;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+
+  .profile-card-wrapper {
+    margin-top: 20px;
+    position: relative;
+    z-index: 5; /* Higher z-index to prevent overlapping issues */
+  }
+  
+  .profile-card {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-card-container:hover .profile-card {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  .profile-cover {
+    height: 120px;
+    background: linear-gradient(135deg, #4a8cff 0%, #5e60ce 100%);
+    flex-shrink: 0; /* Prevent this from shrinking */
+  }
+  
+  .profile-content {
+    position: relative;
+    padding: 80px 25px 25px;
+    text-align: center;
+    flex-grow: 1; /* Allow this to grow */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-image-container {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px; /* Slightly smaller if needed */
+    height: 110px; /* Slightly smaller if needed */
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .profile-name, .profile-title, .profile-bio, .profile-stats {
+    margin-bottom: 15px;
+  }
+  
+  .profile-name {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .profile-title {
+    margin-bottom: 20px;
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .profile-bio {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px; /* Reduced from 25px */
+  }
+  
+  .stat {
+    text-align: center;
+  }
+  
+  .stat h6 {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .stat small {
+    color: #777;
+    font-size: 0.75rem;
+  }
+  
+  .profile-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    margin-top: auto; /* Push to the bottom of the content area */
+  }
+  
+  .profile-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .profile-social a:hover {
+    background-color: #4a8cff;
+    color: white;
+    transform: translateY(-3px);
+  }
+  
+  .profile-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4a8cff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .profile-button:hover {
+    background-color: #3a7ae4;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(74, 140, 255, 0.4);
+  }
+  
+  /* Terminal Bio Card */
+  .about-bio {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .about-bio.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .terminal-card {
+    width: 100%;
+    height: 500px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+  
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #3a3a3a;
+  }
+  
+  .terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff5f56;
+    margin-right: 8px;
+  }
+  
+  .terminal-button:nth-child(2) {
+    background-color: #ffbd2e;
+  }
+  
+  .terminal-button:nth-child(3) {
+    background-color: #27c93f;
+  }
+  
+  .terminal-title {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+  
+  .terminal-body {
+    padding: 20px;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #f8f8f8;
+    white-space: pre-wrap;
+  }
+  
+  .terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background-color: #f8f8f8;
+    animation: blink 1s step-end infinite;
+  }
+  
+
+  /* Skills Section */
+  .about-skills {
+    min-width: 280px;
+    max-width: 400px;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .about-skills.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .skills-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skills-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .skill-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    transition: all 0.3s ease;
+  }
+  
+  .skill-item:hover, .skill-item.active {
+    background-color: #eff6ff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .skill-icon {
+    font-size: 1.8rem;
+    color: #4a8cff;
+    margin-right: 12px;
+  }
+  
+  .skill-img {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 12px;
+  }
+  
+  .skill-info {
+    flex: 1;
+  }
+  
+  .skill-info h4 {
+    margin: 0 0 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .skill-bar {
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #4a8cff, #5e60ce);
+    border-radius: 3px;
+    transition: width 1s ease-in-out;
+  }
+  
+  .additional-skills {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+  }
+  
+  .skill-logo {
+    max-width: 120px;
+    transition: transform 0.3s ease;
+  }
+  
+  .skill-logo:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Education Section */
+  .education-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+  }
+  
+  .education-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50px; /* Ensure this is consistent */
+    width: 4px;
+    height: 100%; /* Make sure it spans full height */
+    background: linear-gradient(to bottom, #4a8cff, #5e60ce);
+    border-radius: 2px;
+  }
+  
+  .timeline-item {
+    margin-bottom: 60px;
+    position: relative;
+    display: flex;
+  }
+  
+  .timeline-icon {
+    position: absolute;
+    left: 52px; /* Center it on the timeline line (50px + half of width) */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    top: 20px; /* Position at the top of each content box */
+  }
+  
+  .timeline-icon.college {
+    background-color: #4a8cff;
+  }
+  
+  .timeline-icon.highschool {
+    background-color: #5e60ce;
+  }
+  
+  .timeline-icon.elementary {
+    background-color: #7851a9;
+  }
+  
+  .timeline-content {
+    margin-left: 80px; /* Consistent spacing from the timeline */
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    width: 100%; /* Make content take full width */
+    max-width: 800px; /* But not too wide */
+  }
+  
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: rotate(45deg);
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.02);
+  }
+  
+  .education-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .education-header h3 {
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .education-header img {
+    max-width: 50px;
+    max-height: 50px;
+  }
+  
+  .timeline-content p {
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .timeline-date {
+    display: inline-block;
+    background-color: #eff6ff;
+    color: #4a8cff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 992px) {
+
+    .about-section {
+        padding: 120px 0 80px; /* Less padding needed on mobile */
+      }
+
+      .profile-card-container {
+        margin-top: 20px; /* Add some margin at the top on mobile */
+      }
+
+    .about-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .about-bio, .about-skills {
+      max-width: 100%;
+    }
+    
+    .skills-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .about-title {
+        font-size: 2.8rem;
+        padding-top: 30px; /* Less padding on mobile */
+      }
+    
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .about-title {
+        font-size: 2.2rem;
+        padding-top: 20px; /* Even less padding on small mobile */
+      }
+    
+    .timeline::before {
+      left: 30px;
+    }
+    
+    .timeline-icon {
+      left: 22px;
+    }
+    
+    .timeline-content {
+      margin-left: 50px;
+    }
+  }
+
+  @media only screen and (max-width: 1100px) and (min-width: 993px) {
+    .profile-card-container {
+      height: 470px;
+    }
+    
+    .profile-stats {
+      margin-bottom: 12px;
+    }
+    
+    .profile-social {
+      margin-bottom: 12px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .timeline::before {
+      left: 30px; /* Move timeline a bit to the left on mobile */
+    }
+    
+    .timeline-icon {
+      left: 32px; /* Adjust icons to new timeline position */
+    }
+    
+    .timeline-content {
+      margin-left: 60px; /* Less margin on mobile */
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .timeline::before {
+      left: 20px; /* Even less space on small screens */
+    }
+    
+    .timeline-icon {
+      left: 22px;
+    }
+    
+    .timeline-content {
+      margin-left: 40px;
+      padding: 15px;
+    }
+  }
+
+  /* Add to your existing About.css file */
+
+/* Enhance existing styles */
+.terminal-body {
+  padding: 20px;
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #f8f8f8;
+  white-space: pre-wrap;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* Enhance skill items */
+.skill-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-item.expanded {
+  height: auto;
+  background-color: #eff6ff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.skill-description {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #555;
+  line-height: 1.4;
+  padding-top: 5px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Timeline enhancements */
+.education-details {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 10px;
+  background-color: rgba(74, 140, 255, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid #4a8cff;
+}
+
+/* New section: About additional content */
+.about-additional-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 30px auto 0;
+  gap: 30px;
+  padding: 0 15px;
+}
+
+/* Projects Highlights Component (formerly Personal Interests) */
+.about-interests {
+  flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-interests.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.interests-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.interests-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+}
+
+.interests-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #4a8cff, #5e60ce);
+  border-radius: 2px;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.interest-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+.interest-item:hover {
+  background-color: #eff6ff;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.interest-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a8cff 0%, #5e60ce 100%);
+  color: white;
+  margin-right: 15px;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(74, 140, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.interest-item:hover .interest-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(74, 140, 255, 0.4);
+}
+
+.interest-content {
+  flex: 1;
+}
+
+.interest-content h4 {
+  font-size: 1rem;
+  margin: 0 0 5px;
+  color: #333;
+  font-weight: 600;
+}
+
+.interest-content p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Academic Recognition Component (formerly Professional Philosophy) */
+.about-philosophy {
+  flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-philosophy.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.philosophy-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.philosophy-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.philosophy-title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+}
+
+.philosophy-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #4a8cff, #5e60ce);
+  border-radius: 2px;
+}
+
+/* Achievement items (new styles) */
+.achievement-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.achievement-item:hover {
+  background-color: #eff6ff;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.achievement-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5e60ce 0%, #8a66cc 100%);
+  color: white;
+  margin-right: 15px;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(94, 96, 206, 0.3);
+  transition: all 0.3s ease;
+}
+
+.achievement-item:hover .achievement-icon {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 8px 20px rgba(94, 96, 206, 0.4);
+}
+
+.achievement-content {
+  flex: 1;
+}
+
+.achievement-content h4 {
+  font-size: 1rem;
+  margin: 0 0 5px;
+  color: #333;
+  font-weight: 600;
+}
+
+.achievement-content p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Work Experience Section (updated from Education) */
+.education-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.education-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  color: #333;
+}
+
+.timeline-item {
+  margin-bottom: 60px;
+  position: relative;
+  display: flex;
+  animation: fadeInLeft 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: calc(0.2s * var(--index, 0));
+}
+
+.timeline-item:nth-child(1) {
+  --index: 1;
+}
+
+.timeline-item:nth-child(2) {
+  --index: 2;
+}
+
+.timeline-item:nth-child(3) {
+  --index: 3;
+}
+
+.timeline-icon.college {
+  background-color: #4a8cff;
+}
+
+.timeline-icon.highschool {
+  background-color: #5e60ce;
+}
+
+.timeline-icon.elementary {
+  background-color: #7851a9;
+}
+
+.education-details {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 15px;
+  background-color: rgba(74, 140, 255, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid #4a8cff;
+  line-height: 1.6;
+}
+
+.education-details strong {
+  color: #4a8cff;
+  font-weight: 600;
+}
+
+/* Enhanced skill items */
+.skill-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-item.expanded {
+  height: auto;
+  background-color: #eff6ff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.skill-description {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #555;
+  line-height: 1.4;
+  padding-top: 5px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Animation for timeline items */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 992px) {
+  .interests-grid, 
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-content,
+  .about-additional-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-interests,
+  .about-philosophy,
+  .about-skills,
+  .about-bio {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .timeline-item {
+    margin-bottom: 40px;
+  }
+  
+  .education-details {
+    font-size: 0.85rem;
+    padding: 12px;
+  }
+  
+  .interest-icon,
+  .achievement-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .interest-content h4,
+  .achievement-content h4 {
+    font-size: 0.95rem;
+  }
+  
+  .interest-content p,
+  .achievement-content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .interests-title,
+  .philosophy-title,
+  .skills-title {
+    font-size: 1.2rem;
+  }
+  
+  .education-title {
+    font-size: 2.2rem;
+  }
+  
+  .interest-item,
+  .achievement-item,
+  .skill-item {
+    padding: 12px;
+  }
+}
+
+/* Refresh terminal body styling */
+.terminal-body {
+  padding: 20px;
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #f8f8f8;
+  white-space: pre-wrap;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}

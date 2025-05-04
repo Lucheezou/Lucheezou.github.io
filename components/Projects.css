@@ -1,0 +1,385 @@
+/* Projects Section */
+.projects-section {
+    position: relative;
+    padding: 100px 0; /* Default padding */
+    background: linear-gradient(135deg, #dfdfdf 0%, #e4e7eb 100%);
+    overflow: hidden;
+    /* Add horizontal padding to the section */
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  
+  .wave-divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  
+  .wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(110% + 1.3px);
+    height: 80px;
+  }
+  
+  .wave-divider .shape-fill {
+    fill: #f8f9fa;
+  }
+  
+  .projects-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 30px; /* Increased container padding */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .projects-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .projects-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: #555;
+    font-size: 1.1rem;
+  }
+  
+  /* Projects Filter */
+  .projects-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+  }
+  
+  .category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .category-filters button {
+    background-color: transparent;
+    border: 2px solid #4a8cff;
+    color: #4a8cff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .category-filters button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(74, 140, 255, 0.3);
+  }
+  
+  .category-filters button.active {
+    background-color: #4a8cff;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .search-container {
+    position: relative;
+    width: 300px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .search-input:focus {
+    border-color: #4a8cff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(74, 140, 255, 0.2);
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #888;
+  }
+  
+  /* Projects Grid */
+  .projects-grid {
+    display: grid;
+    /* Increased the minimum width to 550px for extra wide cards */
+    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+    gap: 30px;
+    margin-top: 50px; /* Add more space between filters and grid */
+  }
+  
+  /* Project Card */
+  .project-card {
+    /* Increased height to 400px */
+    height: 400px;
+    perspective: 2000px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+    animation-play-state: paused;
+  }
+  
+  .project-card.visible {
+    animation-play-state: running;
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+  
+  .project-card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .card-front {
+    background-color: #fff;
+    /* Added object-fit with contain to ensure images aren't cropped */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 100%;
+    /* Changed from cover to contain to show full screenshots */
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    background-color: #f8f9fa;
+  }
+  
+  .writescan-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5) 50%, transparent);
+    padding: 25px 20px;
+    color: white;
+    /* Removed transform to keep overlay visible */
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    /* Added text shadow for better visibility */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 1px 12px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Show overlay on hover for those that want hover effect */
+  .card-front:hover .project-overlay {
+    opacity: 1;
+  }
+  
+  .project-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .tech-tag {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    background-color: rgba(74, 140, 255, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .card-back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .project-description {
+    flex: 1;
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .project-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .project-link.github {
+    background-color: #24292e;
+    color: white;
+  }
+  
+  .project-link.demo {
+    background-color: #4a8cff;
+    color: white;
+  }
+  
+  .project-link i {
+    margin-right: 8px;
+  }
+  
+  .project-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .no-projects {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .no-projects i {
+    font-size: 3rem;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .no-projects p {
+    color: #888;
+    font-size: 1.1rem;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 1200px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .projects-filters {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .category-filters {
+      justify-content: center;
+    }
+    
+    .search-container {
+      width: 100%;
+    }
+    
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    }
+    
+    .project-card {
+      height: 380px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .projects-title {
+      font-size: 2.8rem;
+    }
+    
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      gap: 20px;
+    }
+    
+    .project-card {
+      height: 350px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .projects-title {
+      font-size: 2.2rem;
+    }
+    
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+      height: 320px;
+    }
+  }
+
+  

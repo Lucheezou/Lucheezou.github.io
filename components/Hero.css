@@ -1,0 +1,994 @@
+/* Keep existing styles */
+.hero-container {
+  position: relative;
+  height: 110vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #000000;
+}
+
+/* Enhanced Particle Canvas */
+.particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+  animation-delay: 0.5s;
+}
+
+/* Wave transition - enhanced */
+.wave-transition {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 3;
+}
+
+.wave-transition::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  transform: scaleX(1.5);
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  width: 1000px;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.text-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* New Animated Welcome Styles */
+.animated-greeting {
+  display: flex;
+  justify-content: center;
+  gap: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  color: white;
+}
+
+.hero-title .letter {
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  opacity: 0;
+  transform: translateY(60px) rotateX(10deg);
+  animation: slide-in 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+.hero-title .letter:nth-child(1) { animation-delay: 0.1s; }
+.hero-title .letter:nth-child(2) { animation-delay: 0.15s; }
+.hero-title .letter:nth-child(3) { animation-delay: 0.2s; }
+.hero-title .letter:nth-child(4) { animation-delay: 0.25s; }
+.hero-title .letter:nth-child(5) { animation-delay: 0.3s; }
+.hero-title .letter:nth-child(6) { animation-delay: 0.35s; }
+.hero-title .letter:nth-child(7) { animation-delay: 0.4s; }
+
+/* Sleek 3D effect for letters */
+.hero-title .letter::after {
+  content: attr(data-letter);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(74, 140, 255, 0.8);
+  transform: translateZ(-3px) translateY(0.5px) translateX(0.5px);
+  filter: blur(1px);
+  opacity: 0.7;
+}
+
+/* Refined hover animations for letters */
+.hero-title .letter {
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.hero-title .letter:hover {
+  transform: translateY(-5px);
+  color: #4a8cff;
+  text-shadow: 
+    0 0 10px rgba(74, 140, 255, 0.8),
+    0 0 20px rgba(74, 140, 255, 0.4);
+}
+
+/* Quote styles */
+.hero-quote {
+  font-style: italic;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.9s forwards;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.2rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 0 15px;
+}
+
+.hero-quote::before,
+.hero-quote::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(74, 140, 255, 0.7), transparent);
+}
+
+.hero-quote::before {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-quote::after {
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* Typewriter text animation */
+.typed-text {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row; /* Keep on same line */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.typewriter-container {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+
+.typewriter-text {
+  color: #4a8cff;
+  font-weight: bold;
+}
+
+.typewriter-cursor {
+  color: white;
+  font-weight: bold;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Enhanced Spotify Player */
+.spotify-container {
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease-out 0.9s forwards;
+  opacity: 0;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spotify-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.spotify-icon {
+  color: #1DB954;
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.spotify-card {
+  display: flex;
+  background: rgba(10, 10, 10, 0.75);
+  border-radius: 10px;
+  padding: 15px;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.spotify-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  background: rgba(30, 215, 96, 0.15);
+  border-color: rgba(30, 215, 96, 0.4);
+}
+
+.spotify-card.loading {
+  height: 80px;
+  justify-content: center;
+}
+
+.spotify-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotify-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(30, 215, 96, 0.3);
+  border-top: 3px solid #1DB954;
+  border-radius: 50%;
+  animation: spotify-spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+.album-cover {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.spotify-card:hover .album-cover {
+  transform: scale(1.05) rotate(-3deg);
+}
+
+.song-details {
+  margin-left: 15px;
+  text-align: left;
+  flex: 1;
+}
+
+.song-details h5 {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-details h6 {
+  margin-bottom: 5px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.spotify-equalizer {
+  display: flex;
+  align-items: flex-end;
+  height: 15px;
+  gap: 3px;
+  margin-top: 5px;
+}
+
+.eq-bar {
+  width: 3px;
+  background-color: #1DB954;
+  height: 5px;
+  border-radius: 1px;
+  animation: eq-animation 1.2s ease-in-out infinite;
+}
+
+.eq-bar:nth-child(1) {
+  animation-delay: 0s;
+}
+.eq-bar:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.eq-bar:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.eq-bar:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+/* Tech Stack Showcase */
+.tech-stack-showcase {
+  margin: 2rem 0;
+  animation: fadeInUp 1s ease-out 1.2s forwards;
+  opacity: 0;
+}
+
+.tech-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tech-icon {
+  font-size: 2rem;
+  color: white;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.tech-icon:hover {
+  color: #4a8cff;
+  transform: translateY(-5px) scale(1.15);
+  opacity: 1;
+}
+
+/* Enhanced explore button */
+.explore-button {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #4a8cff 0%, #5e60ce 100%);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  animation: fadeInUp 1s ease-out 1.5s forwards;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(74, 140, 255, 0.3);
+}
+
+.explore-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 60%);
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+}
+
+.explore-button:hover::before {
+  transform: translateY(0);
+}
+
+.explore-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(74, 140, 255, 0.4);
+}
+
+.explore-button i {
+  margin-left: 10px;
+  animation: bounce 2s infinite;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 180px; /* Adjusted to be above the wave */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  opacity: 0;
+  animation: fadeIn 1s ease 2s forwards;
+  z-index: 3;
+}
+
+.scroll-arrow {
+  width: 15px;
+  height: 15px;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(45deg);
+  animation: scroll-arrow-animation 2s infinite;
+}
+
+.scroll-arrow:nth-child(2) {
+  animation-delay: 0.2s;
+  opacity: 0.8;
+}
+
+.scroll-arrow:nth-child(3) {
+  animation-delay: 0.4s;
+  opacity: 0.6;
+}
+
+/* New Sleek Animations */
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) rotateX(10deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(74, 140, 255, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 0 10px rgba(74, 140, 255, 0.8),
+      0 0 20px rgba(74, 140, 255, 0.4);
+  }
+}
+
+/* Existing Animations */
+@keyframes glitch-effect {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-5px, -5px);
+  }
+  60% {
+    transform: translate(5px, 5px);
+  }
+  80% {
+    transform: translate(5px, -5px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+  10% {
+    transform: skew(1deg);
+  }
+  20% {
+    transform: skew(0deg);
+  }
+  30% {
+    transform: skew(-1deg);
+  }
+  40% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes cursor-blink {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes scroll-arrow-animation {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+}
+
+@keyframes eq-animation {
+  0%, 100% {
+    height: 3px;
+  }
+  50% {
+    height: 15px;
+  }
+}
+
+@keyframes spotify-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Styles */
+/* Add these media query updates to your Hero.css file */
+
+/* Responsive Styles - enhanced for better mobile display */
+@media only screen and (max-width: 768px) {
+.hero-title {
+  font-size: 3.5rem;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+}
+
+.hero-quote {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.typed-text {
+  font-size: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.typewriter-container {
+  min-width: 0;
+}
+
+.tech-icon {
+  font-size: 1.5rem;
+}
+
+.explore-button {
+  padding: 12px 25px;
+  font-size: 1rem;
+}
+
+/* Fix for scroll indicator position on mobile */
+.scroll-indicator {
+  bottom: 140px; /* Adjust this value to move arrows up further from bottom */
+  z-index: 5;
+}
+
+/* Center the Spotify container on mobile */
+.spotify-container {
+  width: 90%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spotify-card {
+  width: 100%; /* Ensure card takes full width of container */
+  margin: 0 auto; /* Center the card */
+}
+
+/* Add padding to ensure content doesn't touch edges */
+.hero-content {
+  width: 100%;
+  padding: 0 15px;
+}
+
+/* Adjust wave transition for mobile */
+.wave-transition {
+  height: 120px; /* Slightly smaller on mobile */
+}
+}
+
+@media only screen and (max-width: 480px) {
+.hero-title {
+  font-size: 2.5rem;
+}
+
+.hero-description {
+  font-size: 1rem;
+}
+
+.hero-quote {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.typed-text {
+  font-size: 1.2rem;
+}
+
+.tech-icon-wrapper {
+  gap: 15px;
+}
+
+/* Fix for scroll indicator position on small mobile */
+.scroll-indicator {
+  bottom: 120px;
+}
+
+/* Spotify card adjustments for very small screens */
+.spotify-container {
+  width: 95%;
+  max-width: 280px;
+}
+
+.spotify-card {
+  padding: 12px;
+}
+
+.album-cover {
+  width: 56px;
+  height: 56px;
+}
+
+.song-details h5 {
+  font-size: 0.95rem;
+}
+
+.song-details h6 {
+  font-size: 0.8rem;
+}
+
+/* Ensure wave transition looks good on small devices */
+.wave-transition {
+  height: 100px; /* Even smaller on tiny screens */
+}
+}
+
+/* Fix for very small devices */
+@media only screen and (max-width: 360px) {
+.hero-title {
+  font-size: 2.2rem;
+}
+
+.tech-icon-wrapper {
+  gap: 12px;
+}
+
+.tech-icon {
+  font-size: 1.3rem;
+}
+
+/* Ensure spotify card fits on tiny screens */
+.spotify-container {
+  max-width: 260px;
+}
+
+.album-cover {
+  width: 50px;
+  height: 50px;
+}
+
+/* Further adjust scroll indicator */
+.scroll-indicator {
+  bottom: 110px;
+}
+}
+
+/* Filipino Greeting Styles - Add these to your existing Hero.css */
+
+/* Base styles for the Filipino greeting */
+.filipino-greeting {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+/* Day greeting styles */
+.araw-greeting .letter {
+  color: #ffd700; /* Gold for daytime */
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.7),
+    0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.araw-greeting .letter:hover {
+  color: #ffa500; /* Orange hover */
+  transform: translateY(-5px);
+  text-shadow: 
+    0 0 15px rgba(255, 215, 0, 0.9),
+    0 0 30px rgba(255, 165, 0, 0.6);
+}
+
+/* Night greeting styles */
+.gabi-greeting .letter {
+  color: #add8e6; /* Light blue for nighttime */
+  text-shadow: 
+    0 0 10px rgba(173, 216, 230, 0.7),
+    0 0 20px rgba(173, 216, 230, 0.4);
+}
+
+.gabi-greeting .letter:hover {
+  color: #87cefa; /* Sky blue hover */
+  transform: translateY(-5px);
+  text-shadow: 
+    0 0 15px rgba(173, 216, 230, 0.9),
+    0 0 30px rgba(135, 206, 250, 0.6);
+}
+
+/* Animation for letters */
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: letterFadeIn 0.7s forwards;
+  transition: all 0.3s ease;
+}
+
+@keyframes letterFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+.greeting-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  gap: 15px;
+}
+
+.greeting-icon {
+  font-size: 2.2rem;
+  animation: glow 2s infinite alternate;
+}
+
+.greeting-text {
+  color: white; /* Set greeting text to white */
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s forwards;
+  opacity: 0;
+}
+
+/* Sun icon specific styles */
+.fa-sun {
+  color: #FFD700; /* Gold/yellow for sun */
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+
+/* Moon icon specific styles */
+.fa-moon {
+  color: #ADD8E6; /* Light blue for moon */
+  text-shadow: 0 0 15px rgba(173, 216, 230, 0.7);
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 5px currentColor);
+  }
+  to {
+    filter: drop-shadow(0 0 15px currentColor);
+  }
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  .greeting-container {
+    gap: 10px;
+  }
+  
+  .greeting-text {
+    font-size: 2.8rem;
+  }
+  
+  .greeting-icon {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .greeting-text {
+    font-size: 2.2rem;
+  }
+  
+  .greeting-icon {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* Add this to your Hero.css file */
+
+/* Seamless wave transition */
+.hero-wave-separator {
+  position: absolute;
+  bottom: -1px; /* Ensure no gap between hero and waves */
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 5; /* Higher z-index to ensure it appears above other elements */
+  pointer-events: none; /* Allow clicking through to elements behind */
+}
+
+.hero-wave-separator svg {
+  width: 100%;
+  height: 120px; /* Matches height in the viewBox */
+  display: block;
+}
+
+/* Hide any previous dividers or transitions */
+.wave-transition,
+.shape-divider {
+  display: none;
+}
+
+/* Ensure hero container has proper positioning */
+.hero-container {
+  position: relative;
+  background-color: #000000;
+  overflow: hidden;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* About section connection */
+.about-section {
+  background-color: #ffffff;
+  margin-top: 0;
+  padding-top: 80px;
+  z-index: 4;
+  position: relative;
+}
+
+/* Adjust the scroll indicators */
+.scroll-indicator {
+  bottom: 140px; /* Move up to not overlap with waves */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 992px) {
+  .hero-wave-separator svg {
+    height: 100px;
+  }
+  
+  .about-section {
+    padding-top: 60px;
+  }
+  
+  .scroll-indicator {
+    bottom: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-wave-separator svg {
+    height: 80px;
+  }
+  
+  .about-section {
+    padding-top: 40px;
+  }
+  
+  .scroll-indicator {
+    bottom: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-wave-separator svg {
+    height: 60px;
+  }
+  
+  .about-section {
+    padding-top: 30px;
+  }
+  
+  .scroll-indicator {
+    bottom: 80px;
+  }
+}

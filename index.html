@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Rubik:wght@600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://kit.fontawesome.com/977e05d6d6.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Lucheezou's Portfolio</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.jsx"></script>
+    
+    <!-- Chatbot Script -->
+    <script src="https://cdn.botpress.cloud/webchat/v2.4/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2024/11/07/04/20241107045222-JYSP31TX.js"></script>
+<!-- Add this script tag to your index.html file before the closing body tag -->
+<script>
+  // Function to inject styles into Botpress iframe
+  function injectBotpressStyles() {
+    // Find all iframes in the document
+    const iframes = document.querySelectorAll('iframe');
+    
+    iframes.forEach(iframe => {
+      // Check if it's the Botpress iframe
+      if (iframe.title === "Botpress" || 
+          iframe.name === "webchat" || 
+          iframe.classList.contains('bpWebchat') ||
+          iframe.classList.contains('bpOpen')) {
+        
+        try {
+          // Try to access the iframe content and modify its styles
+          const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+          
+          // Create a style element
+          const styleElement = document.createElement('style');
+          styleElement.textContent = `
+            * {
+              cursor: none !important;
+            }
+            
+            html, body, div, span, button, a {
+              cursor: none !important;
+            }
+          `;
+          
+          // Append the style element to the iframe's head
+          iframeDocument.head.appendChild(styleElement);
+          
+          console.log("Successfully injected styles into Botpress iframe");
+        } catch (error) {
+          console.log("Cannot access iframe content due to same-origin policy");
+        }
+      }
+    });
+  }
+  
+  // Run the function periodically to catch the iframe when it loads
+  setInterval(injectBotpressStyles, 1000);
+  
+  // Stop trying after 20 seconds to avoid resource waste
+  setTimeout(() => {
+    clearInterval(injectBotpressInterval);
+  }, 20000);
+  
+  // Also try on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', injectBotpressStyles);
+  
+  // And on window load
+  window.addEventListener('load', () => {
+    injectBotpressStyles();
+    // Try again after a short delay
+    setTimeout(injectBotpressStyles, 2000);
+  });
+</script>
+  </body>
+</html>

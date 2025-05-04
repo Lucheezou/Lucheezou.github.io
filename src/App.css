@@ -1,0 +1,285 @@
+/* Global Styles */
+
+
+html, body, #root {
+	overflow-x: hidden;
+	width: 100%;
+	max-width: 100%;
+  }
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  body {
+	font-family: 'Roboto', sans-serif;
+	color: #333;
+	background-color: #f8f9fa;
+	overflow-x: hidden;
+	cursor: none; /* Hide default cursor */
+  }
+  
+  a {
+	text-decoration: none;
+	color: inherit;
+  }
+  
+  /* Custom Cursor */
+  .cursor {
+	position: fixed;
+	width: 8px;
+	height: 8px;
+	background-color: #4a8cff;
+	border-radius: 50%;
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+	transition: transform 0.1s ease;
+  }
+  
+  .cursor-follower {
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	border: 2px solid rgba(74, 140, 255, 0.5);
+	border-radius: 50%;
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+	z-index: 9998;
+	transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  }
+  
+  
+
+  /* Add cursor interactions for specific elements */
+  a:hover ~ .cursor,
+  button:hover ~ .cursor {
+	transform: translate(-50%, -50%) scale(1.5);
+  }
+  
+  a:hover ~ .cursor-follower,
+  button:hover ~ .cursor-follower {
+	width: 50px;
+	height: 50px;
+	border-color: rgba(74, 140, 255, 0.8);
+  }
+  
+  /* Responsive cursor behavior */
+  @media (max-width: 768px) {
+	body {
+	  cursor: auto; /* Restore default cursor on mobile */
+	}
+	
+	.cursor, .cursor-follower {
+	  display: none;
+	}
+  }
+  
+  /* Back to Top Button */
+  .back-to-top {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 50px;
+	height: 50px;
+	background-color: #4a8cff;
+	color: white;
+	border: none;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.2rem;
+	cursor: pointer;
+	z-index: 99;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(20px);
+	transition: all 0.3s ease;
+	box-shadow: 0 5px 15px rgba(74, 140, 255, 0.3);
+  }
+  
+  .back-to-top.visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+  }
+  
+  .back-to-top:hover {
+	background-color: #3a7ae4;
+	transform: translateY(-5px);
+	box-shadow: 0 8px 20px rgba(74, 140, 255, 0.4);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	to {
+	  opacity: 1;
+	}
+  }
+  
+  @keyframes slideUp {
+	from {
+	  opacity: 0;
+	  transform: translateY(30px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  
+  @keyframes slideDown {
+	from {
+	  opacity: 0;
+	  transform: translateY(-30px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  
+  @keyframes slideLeft {
+	from {
+	  opacity: 0;
+	  transform: translateX(30px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
+  
+  @keyframes slideRight {
+	from {
+	  opacity: 0;
+	  transform: translateX(-30px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
+  
+  /* Add these styles to your App.css or create a new CSS file */
+
+/* Make sure the body and html take full width */
+html, body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+  }
+  
+  /* Check container classes used in your components */
+  .container, 
+  .projects-container, 
+  .about-content, 
+  .footer-container {
+	width: 100%;
+	max-width: 100%; /* Change this if you want some max-width */
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+  }
+  
+  /* For sections that should be full-width */
+  .hero-container,
+  .about-section,
+  .projects-section,
+  .footer-section {
+	width: 100vw; /* Use viewport width */
+	max-width: 100%; /* Ensure it doesn't exceed screen */
+	overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* For content that should be centered with some max-width */
+  .content-container {
+	width: 100%;
+	max-width: 1400px; /* Adjust this value as needed */
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 20px;
+  }
+  /* Add custom cursor script */
+  
+  /* Add these styles to your App.css file */
+
+/* Hide default cursor on all clickable elements */
+a, button, input[type="submit"], input[type="button"], 
+.nav-link, .project-card, .category-filters button,
+.search-input, .submit-button, .back-to-top,
+.profile-social a, .project-link, .explore-button {
+  cursor: none !important;
+}
+
+/* Enhance cursor follower size and appearance on hover over clickable elements */
+a:hover ~ .cursor-follower,
+button:hover ~ .cursor-follower,
+input[type="submit"]:hover ~ .cursor-follower,
+input[type="button"]:hover ~ .cursor-follower,
+.nav-link:hover ~ .cursor-follower,
+.project-card:hover ~ .cursor-follower,
+.category-filters button:hover ~ .cursor-follower,
+.search-input:hover ~ .cursor-follower,
+.submit-button:hover ~ .cursor-follower,
+.back-to-top:hover ~ .cursor-follower,
+.profile-social a:hover ~ .cursor-follower,
+.project-link:hover ~ .cursor-follower,
+.explore-button:hover ~ .cursor-follower {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(74, 140, 255, 0.1);
+  border-color: rgba(74, 140, 255, 0.8);
+  border-width: 2px;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* Enhance cursor dot size and appearance on hover over clickable elements */
+a:hover ~ .cursor,
+button:hover ~ .cursor,
+input[type="submit"]:hover ~ .cursor,
+input[type="button"]:hover ~ .cursor,
+.nav-link:hover ~ .cursor,
+.project-card:hover ~ .cursor,
+.category-filters button:hover ~ .cursor,
+.search-input:hover ~ .cursor,
+.submit-button:hover ~ .cursor,
+.back-to-top:hover ~ .cursor,
+.profile-social a:hover ~ .cursor,
+.project-link:hover ~ .cursor,
+.explore-button:hover ~ .cursor {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: rgba(74, 140, 255, 1);
+  box-shadow: 0 0 10px rgba(74, 140, 255, 0.5);
+}
+
+/* Ensure clickable inputs still show text cursor */
+input[type="text"], 
+input[type="email"], 
+input[type="password"],
+textarea {
+  cursor: text !important;
+}
+
+/* Restore default cursor on mobile */
+@media (max-width: 768px) {
+  a, button, input[type="submit"], input[type="button"], 
+  .nav-link, .project-card, .category-filters button,
+  .search-input, .submit-button, .back-to-top,
+  .profile-social a, .project-link, .explore-button,
+  input[type="text"], input[type="email"], input[type="password"],
+  textarea {
+    cursor: auto !important;
+  }
+}
+
