@@ -268,7 +268,7 @@ const Presentations = () => {
 
   // Back to portfolio button handler
   const navigateToPortfolio = () => {
-    window.location.href = '/';
+    window.location.hash = "/";
   };
 
   return (
