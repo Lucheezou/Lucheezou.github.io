@@ -1,0 +1,25 @@
+.pdf-thumbnail-generator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .thumbnail-loading,
+  .thumbnail-error {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .thumbnail-loading {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .thumbnail-error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 4px;
+    padding: 10px 15px;
+  }

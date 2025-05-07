@@ -1,13 +1,13 @@
-// main.jsx - consolidated smooth scrolling functionality
+// main.jsx - updated with React Router
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import AppRouter from './AppRouter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 // Create and render React app
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
-root.render(<App />);
+root.render(<AppRouter />);
 
 // Single implementation of smooth scrolling functionality
 document.addEventListener('DOMContentLoaded', () => {
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .search-input, .submit-button, .back-to-top,
       .profile-social a, .project-link, .explore-button,
       input[type="text"], input[type="email"], input[type="password"],
-      textarea, .tech-tag, .form-control
+      textarea, .tech-tag, .form-control, .presentation-card
     `);
     
     // Add hover effects for each interactive element
